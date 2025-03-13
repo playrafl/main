@@ -7,16 +7,13 @@ const corsOptions = {
 
 export function middleware(request: NextRequest) {
   const headerOrigin = request.headers.get("origin");
-  const nextUrlOrigin = request?.nextUrl?.origin;
   const referrer = request.headers.get("referer");
   const forwardedHost = request.headers.get("x-forwarded-host");
-  const origin =
-    headerOrigin || nextUrlOrigin || referrer || forwardedHost || "";
+  const origin = headerOrigin || referrer || forwardedHost || "";
   console.log({ headerOrigin });
-  console.log({ nextUrlOrigin });
-  console.log({ origin });
   console.log({ referrer });
   console.log({ forwardedHost });
+  console.log({ origin });
 
   console.log("NEXT_ORIGIN_URL: ", process.env.NEXT_ORIGIN_URL);
 
