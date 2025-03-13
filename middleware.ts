@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-console.log("NEXT_ORIGIN_URL: ", process.env.NEXT_ORIGIN_URL);
 const allowedOrigins = [process.env.NEXT_ORIGIN_URL];
 
 const corsOptions = {
@@ -8,9 +7,14 @@ const corsOptions = {
 };
 
 export function middleware(request: NextRequest) {
-  const origin =
-    request.headers.get("origin") || request?.nextUrl?.origin || "";
+  const headerOrigin = request.headers.get("origin");
+  const nextUrlOrigin = request?.nextUrl?.origin;
+  const origin = headerOrigin || nextUrlOrigin || "";
+  console.log({ headerOrigin });
+  console.log({ nextUrlOrigin });
   console.log({ origin });
+  console.log("NEXT_ORIGIN_URL: ", process.env.NEXT_ORIGIN_URL);
+  console.log({ allowedOrigins });
   const isAllowedOrigin = allowedOrigins.includes(origin);
 
   const isPreflight = request.method === "OPTIONS";
