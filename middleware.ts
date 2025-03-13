@@ -10,12 +10,6 @@ export function middleware(request: NextRequest) {
   const referrer = request.headers.get("referer");
   const forwardedHost = request.headers.get("x-forwarded-host");
   const origin = headerOrigin || referrer || forwardedHost || "";
-  console.log({ headerOrigin });
-  console.log({ referrer });
-  console.log({ forwardedHost });
-  console.log({ origin });
-
-  console.log("NEXT_ORIGIN_URL: ", process.env.NEXT_ORIGIN_URL);
 
   const isAllowedOrigin = origin.includes(String(process.env.NEXT_ORIGIN_URL));
 
