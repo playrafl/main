@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-const allowedOrigins = [process.env.NEXT_ORIGIN_URL];
 
 const corsOptions = {
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
@@ -9,13 +8,19 @@ const corsOptions = {
 export function middleware(request: NextRequest) {
   const headerOrigin = request.headers.get("origin");
   const nextUrlOrigin = request?.nextUrl?.origin;
-  const origin = headerOrigin || nextUrlOrigin || "";
+  const referrer = request.headers.get("referer");
+  const forwardedHost = request.headers.get("x-forwarded-host");
+  const origin =
+    headerOrigin || nextUrlOrigin || referrer || forwardedHost || "";
   console.log({ headerOrigin });
   console.log({ nextUrlOrigin });
   console.log({ origin });
+  console.log({ referrer });
+  console.log({ forwardedHost });
+
   console.log("NEXT_ORIGIN_URL: ", process.env.NEXT_ORIGIN_URL);
-  console.log({ allowedOrigins });
-  const isAllowedOrigin = allowedOrigins.includes(origin);
+
+  const isAllowedOrigin = origin.includes(String(process.env.NEXT_ORIGIN_URL));
 
   const isPreflight = request.method === "OPTIONS";
   if (!isAllowedOrigin)
