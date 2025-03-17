@@ -49,12 +49,6 @@ export async function POST(request: NextRequest) {
       "jwt-secret"
     );
     return NextResponse.json({
-      user: {
-        id: user.id || user._id,
-        email: user.email,
-        userName: user?.userName,
-        fullName: user.fullName,
-      },
       token,
     });
   } catch (err: any) {

@@ -36,7 +36,6 @@ export async function GET(request: NextRequest) {
     );
     return NextResponse.json({
       user,
-      token: _token,
     });
   } catch (error: any) {
     return NextResponse.json(
