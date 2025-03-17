@@ -29,8 +29,11 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
       if (resp) {
         setUser(resp.user);
         setIsLoggedIn(true);
-        setRestAuth(resp.token);
-        Cookie.set(AUTH_KEY, resp.token);
+        const token = (await getCookie(AUTH_KEY)) || "";
+        if (token) {
+          setRestAuth(token);
+          Cookie.set(AUTH_KEY, token);
+        }
       }
     } catch (error) {
       console.log(error);

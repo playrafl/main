@@ -20,7 +20,7 @@ import { setRestAuth } from "@/services/rest-client";
 import toast from "react-hot-toast";
 
 export default function Login() {
-  const { setUser } = useContext(AppContext);
+  const { setUser, configureAuth } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState(initFormLogin);
   const router = useRouter();
@@ -45,12 +45,13 @@ export default function Login() {
       UsersServices.login({
         ...form,
       })
-        .then((resp) => {
+        .then(async (resp) => {
           if (resp) {
             setRestAuth(resp.token);
             Cookie.set(AUTH_KEY, resp.token);
             router.push("/accounts");
-            setUser(resp.user);
+            // setUser(resp.user);
+            await configureAuth();
           }
         })
         .catch((error) => {
