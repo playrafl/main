@@ -11,24 +11,21 @@ const WhatIsRaf = () => {
           is rafl
         </h1>
         <ImageComp
-        src={KingWIRLgImg}
-        alt="KingWIRLgImg"
-        className="absolute right-12 top-[calc(100%-35%)] hidden md:flex"
-      />
+          src={KingWIRLgImg}
+          alt="KingWIRLgImg"
+          className="absolute right-12 top-[calc(100%-35%)] hidden md:flex"
+        />
       </div>
       <div className="flex flex-col w-full md:w-[340px] lg:w-[398px] gap-y-6 text-xl leading-6 lg:text-2xl lg:leading-7 font-bold text-rafl_violet-50">
         <p>
-          A vibrant and imaginative realm filled with diverse landscapes,
-          cultures, and adventures waiting to be explored.
+          Rafl is an online community where users pool their money and the
+          winner takes all!
         </p>
         <p>
-          An enchanting world brimming with colorful landscapes, rich cultures,
-          and thrilling adventures just waiting to be discovered.
+          You can choose how to play - either play daily games to win cash or
+          sign up for a monthly subscription to win BIG!
         </p>
-        <p>
-          Landscapes, rich cultures, and thrilling adventures just waiting to be
-          discovered.
-        </p>
+        <p>Monthly subscription of only $10 can win you $10,000</p>
       </div>
       <ImageComp
         src={KingWIRSmImg}

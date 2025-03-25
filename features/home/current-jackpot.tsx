@@ -80,8 +80,9 @@ const CurrentJackpot = () => {
         <ImageComp src={JackpotSm} alt="JackpotSm" className="flex md:hidden" />
         <ImageComp src={JackpotLg} alt="JackpotLg" className="hidden md:flex" />
         <p className="text-xl leading-6 md:text-2xl md:leading-7 text-rafl_violet-50 font-bold text-center max-w-[520px]">
-          A vibrant and imaginative realm filled with diverse landscapes,
-          cultures, and adventures waiting to be explored.
+          With Rafl you can play daily games as many times as you want. Sign up
+          for a monthly subscription, which you can cancel at any time, to with
+          BIG money!
         </p>
         <Link
           href={"/login"}

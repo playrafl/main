@@ -127,8 +127,8 @@ const JoinTheRafl = () => {
         </div>
         <div className="text-xl leading-6 md:text-2xl md:leading-7 flex items-center justify-center max-w-[300px] md:max-w-[520px] px-5 flex-wrap relative z-10 xl:-mt-4">
           <p className="text-rafl_violet-50 font-bold text-center">
-            A vibrant and imaginative realm filled with diverse landscapes,
-            cultures, and adventures waiting to be explored.
+            Rafl daily games and monthly subscriptions offer you the best odds
+            to win cash!
           </p>
         </div>
         <Link
